@@ -1,0 +1,7 @@
+<a href="/country/newsearch">Search for a country</a>
+<ul>
+    @foreach(var country in Model)
+    {
+        <li>@country.GetName(), population @country.GetPop()</li>
+    }
+</ul>

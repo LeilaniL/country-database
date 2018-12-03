@@ -13,11 +13,13 @@ namespace WorldDatabase.Models
         private int _Population;
         private static List<City> _instances = new List<City> { };
 
-        public City(int id, string name, int population)
+        public City(int id, string name, string countryCode, int population)
         {
             _Id = id;
             _Name = name;
+            _CountryCode = countryCode;
             _Population = population;
+
         }
         public string GetName()
         {
@@ -44,8 +46,9 @@ namespace WorldDatabase.Models
             {
                 int cityId = rdr.GetInt32(0);
                 string cityName = rdr.GetString(1);
+                string countryCode = rdr.GetString(2);
                 int cityPop = rdr.GetInt32(4);
-                City newCity = new City(cityId, cityName, cityPop);
+                City newCity = new City(cityId, cityName, countryCode, cityPop);
                 allCities.Add(newCity);
             }
             conn.Close();
@@ -67,9 +70,9 @@ namespace WorldDatabase.Models
             {
                 int cityId = rdr.GetInt32(0);
                 string cityName = rdr.GetString(1);
+                string countryCode = rdr.GetString(2);
                 int cityPop = rdr.GetInt32(4);
-                City newCity = new City(cityId, cityName, cityPop);
-                allCities.Add(newCity);
+                City newCity = new City(cityId, cityName, countryCode, cityPop);
             }
             conn.Close();
             if (conn != null)

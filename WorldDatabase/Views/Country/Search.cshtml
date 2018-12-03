@@ -1,0 +1,7 @@
+<a href="/country/index">Return to country Index</a>
+<ul>
+    @foreach(var country in Model)
+    {
+        <li>@country.GetName(), population @country.GetPop()</li>
+    }
+</ul>
