@@ -1,6 +1,7 @@
+<a href="/city/index">Return to City Index</a>
 <ul>
     @foreach(var city in Model)
     {
-        <li>@city.GetName()</li>
+        <li>@city.GetName(), population @city.GetPop()</li>
     }
 </ul>
