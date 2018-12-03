@@ -13,10 +13,15 @@ namespace WorldDatabase.Controllers
             List<City> allCities = City.GetAll();
             return View("index", allCities);
         }
-        [HttpGet("search")]
-        public ActionResult Search()
+        [HttpGet("newSearch")]
+        public ActionResult Create()
         {
-            List<City> searchResults = City.SearchCity("'Se%'");
+            return View("newSearch");
+        }
+        [HttpPost("search")]
+        public ActionResult Search(string inputCity)
+        {
+            List<City> searchResults = City.SearchCity(inputCity);
             return View("search", searchResults);
 
         }
